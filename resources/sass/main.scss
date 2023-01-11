@@ -1,0 +1,15 @@
+@import '../../node_modules/bootstrap/scss/_functions';
+@import '../../node_modules/bootstrap/scss/_variables';
+
+$primary: purple;
+
+$custom-theme-colors: (
+    "primarys": purple,
+);
+
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
