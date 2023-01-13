@@ -28,11 +28,11 @@
             <td>
                 <div class="d-flex justify-content-between">
                     <a href="{{ route('submit.show' , $uml->id) }}" role="button" class="btn btn-primary">
-                        <i class="bi bi-pencil bi-4x">EDIT</i>
+                        <i class="bi bi-pencil bi-4x mr-2"></i>Edit
                     </a>
 
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-item="{{ $uml->id }}">
-                       <i class="bi bi-trash-fill">DELETE</i>
+                       <i class="bi bi-trash-fill mr-2"></i> Delete
                     </button>
 
 

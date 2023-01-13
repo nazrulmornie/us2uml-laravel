@@ -57,6 +57,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::patch('/update-avatar/{user}', [UserController::class, 'updateAvatar'])->name('user.update');
+    Route::patch('/update-info/{user}', [UserController::class, 'updateInformation'])->name('user.update-info');
 });
 
 Route::get('/update-password/', [ProfileController::class, 'changePasswordForm'])->name('password.form')->middleware('auth');

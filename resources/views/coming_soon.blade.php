@@ -16,7 +16,7 @@
                         <input class="btn btn-primary w-100 mt-2" type="submit" id="button-addon2" value="Submit">
                     </form>
                     @if (session('success'))
-                    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                    <div class="alert alert-primary alert-dismissible fade show mt-3" role="alert">
                         <strong>{{ session('success') }}</strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     </div>

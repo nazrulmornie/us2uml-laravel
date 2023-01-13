@@ -33,4 +33,22 @@ class UserController extends Controller
         }
 
     }
+
+    public function updateInformation(Request $request, $id){
+        $user = User::find($id);
+
+        $phone_number = $request->phone_number;
+        $about = $request->about;
+        $group = $request->group;
+        $gender = $request->gender;
+
+        $user->phone_number = $phone_number;
+        $user->about_me = $about;
+        $user->user_group = $group;
+        $user->gender = $gender;
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'Information updated succesfully!');
+    }
 }

@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg">
                     <a class="navbar-brand" href="{{ route('home') }}">
-                        <img src="{{ asset('img/Color logo - no background.svg') }}" alt="logo" height="50">
+                        <img class="img-thumbnail" src="{{ asset('img/Color logo - no background.svg') }}" alt="logo" style="height: 3rem">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -100,9 +100,6 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                             @endif
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('about') }}">About</a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
                             </li>
