@@ -710,8 +710,10 @@ a:focus, a:hover {
 ==================================================================*/
 .call-to-action {
   padding: 100px 0;
-  background: url("../images/call-to-action/call-to-action-bg-2.jpg");
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgb(0, 0, 0)), url("../../img/fit.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   color: #fff;
 }
 .call-to-action h2 {

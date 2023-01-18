@@ -5,8 +5,8 @@
 <div class="coming_soon">
     <div class="container-fluid">
         <div class="d-flex flex-column justify-content-center align-items-center vh-100">
-            <h1 class="text-center mb-5 text-white display-2">This feature will be available soon!</h1>
-            <div class="card p-4 w-75">
+            <h1 class="text-center mb-5 text-white display-3">This feature will be available soon!</h1>
+            <div class="card p-4 w-50">
                 <div class="card-body">
                     <h1 class="card-title">Get Notified!</h1>
                     <h4>Be the first to explore our new features by submitting your email address. </h4>

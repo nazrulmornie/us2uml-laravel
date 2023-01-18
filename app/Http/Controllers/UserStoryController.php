@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DiagramType;
 use App\Models\UserStory;
 use App\Models\Umls;
 use Illuminate\Http\Request;
@@ -17,13 +18,13 @@ class UserStoryController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-
+        $diagram_type = DiagramType::all();
         $uml = Umls::where('user_id', $user_id)->get();
 
         if ($uml->isEmpty()){
             return view('no_submission');
         }else{
-            return view('my_submission', compact('uml'));
+            return view('my_submission', compact('uml', 'diagram_type'));
         }
     }
 
@@ -34,7 +35,8 @@ class UserStoryController extends Controller
      */
     public function create()
     {
-        return view('make_submission');
+        $diagram_type = DiagramType::all();
+        return view('make_submission', ['diagram_type' => $diagram_type]);
     }
 
     /**
@@ -50,15 +52,18 @@ class UserStoryController extends Controller
             'stories.*' => 'required',
             'project' => 'required',
             'uml_diagram' => 'required',
+            'diagram_type' => 'required',
         ]);
+
 
         $uml = new Umls;
         $image = $request->uml_diagram;
         $uml->user_id = $user_id;
         $uml->project_name = $request->project;
+        $uml->diagram_id = $request->diagram_type;
 
         $image_name = $image->getClientOriginalName();
-        $image->storeAs('public/images', $image_name);
+        $image->storeAs('public/images/' . $uml->diagram_type->diagram_name, $image_name);
         $uml->image = $image_name;
 
 

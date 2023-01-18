@@ -11,4 +11,8 @@ class UserStory extends Model
 
     protected $table = 'user_stories';
     protected $fillable = ['user_story', 'uml_id', 'user_id'];
+
+    public function uml(){
+        return $this->belongsTo(Umls::class, 'uml_id');
+    }
 }

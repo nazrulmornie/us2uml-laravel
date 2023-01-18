@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DiagramType;
 use App\Models\Umls;
 use Illuminate\Http\Request;
 
@@ -57,8 +58,9 @@ class UmlsController extends Controller
      */
     public function edit($umls)
     {
+        $diagram_type = DiagramType::all();
         $uml = Umls::find($umls);
-        return view('uml.update_uml', compact('uml'));
+        return view('uml.update_uml', compact('uml', 'diagram_type'));
     }
 
     /**
@@ -73,6 +75,12 @@ class UmlsController extends Controller
         $uml = Umls::find($umls);
 
         $image = $request->new_uml_diagram;
+        $diagram_name= $request->diagram_type;
+
+        if(!empty ($diagram_name)){
+            $uml->diagram_id = $diagram_name;
+        }
+
 
         if (!empty ($image)){
             $image_name = $image->getClientOriginalName();
@@ -81,9 +89,21 @@ class UmlsController extends Controller
 
             if(!empty ($request->project_title)){
                 $uml->project_name = $request->project_title;
-                $uml->save();
+
+                if(!empty ($diagram_type)){
+                    $uml->diagram_id = $diagram_name;
+                    $uml->save();
+                }else{
+                    $uml->save();
+                }
+
             }else{
-                $uml->save();
+                if(!empty ($diagram_name)){
+                    $uml->diagram_id = $diagram_name;
+                    $uml->save();
+                }else{
+                    $uml->save();
+                }
             }
         }
         else
@@ -92,6 +112,14 @@ class UmlsController extends Controller
                 $uml->project_name = $request->project_title;
                 $uml->save();
             }
+
+            if(!empty ($diagram_type)){
+                $uml->diagram_id = $diagram_type;
+                $uml->save();
+            }else{
+                $uml->save();
+            }
+
         }
 
         return redirect()->route('add-uml.edit', $umls)->with('success', 'UML info succesfully updated!');
@@ -109,6 +137,6 @@ class UmlsController extends Controller
 
         $uml->delete();
         // $user_story->delete();
-        return redirect()->back()->with('danger','User story has been deleted successfully');
+        return redirect()->route('submit.index')->with('danger','User story has been deleted successfully');
     }
 }

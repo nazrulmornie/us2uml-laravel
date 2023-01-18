@@ -7,18 +7,16 @@
     <div class="container w-100">
         <div class="row">
             <div class="col-md-12">
-                <h2>New Submission</h2>
+                <h2>User Stories, Goal Model, and Use Case Diagram Submission</h2>
             </div>
         </div>
     </div>
 </section>
 
-<div class="container">
-    <h1 class ="text-center mb-5">User Stories, Goal Model, and Use Case Diagram Submission</h1>
-
+<div class="container-sm mb-3">
     <div class="row">
         <div class="col-md-5">
-            <div class="card p-5">
+            <div class="card p-5 shadow">
                 <h2 class ="text-center mb-5">User Stories Template</h2>
                 <ul class = "list-group list-group-flush">
                     <li class="list-group-item">As a (1)___________________, I want to (2) ___________________.</li>
@@ -63,15 +61,6 @@
             </div>
         </div>
 
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
       <div class="col-md-7 d-flex align-items-stretch">
         <div class="card w-100">
           <div class="card-body">
@@ -85,19 +74,27 @@
                         <div class="mb-3">
                         <label for="project" class="form-label">Project Name</label>
                         <input type="text"
-                            class="form-control" name="project" id="project" placeholder="Enter Project Name" required>
+                            class="form-control" name="project" id="project" placeholder="Enter Project Name">
                         </div>
                     </div>
 
                     <div class="col-sm col-xs col-md">
-                        <div class="mb-3" name="image">
-                        <label for="uml_diagram" class="form-label">UML Diagram</label>
-                        <input type="file" class="form-control" name="uml_diagram" accept="image/*"
-                            id="uml_diagram" placeholder="Upload UML Diagram"  aria-describedby="helpId"
-                            onchange="readURL(this);" required>
-                        <small id="helpId" class="form-text text-muted">Image in PNG format is recommended</small>
-                        </div>
+                        <label for="project" class="form-label">Diagram Types</label>
+                        <select name="diagram_type" id="diagram_type" class="form-select form-select-md">
+                            <option disabled selected>Select Diagram Types</option>
+                            @foreach ($diagram_type as $key)
+                                <option value="{{ $key->id }}">{{ $key->diagram_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
+                </div>
+
+                <div class="mb-3" name="image">
+                    <label for="uml_diagram" class="form-label">UML Diagram</label>
+                    <input type="file" class="form-control" name="uml_diagram" accept="image/*"
+                        id="uml_diagram" placeholder="Upload UML Diagram"  aria-describedby="helpId"
+                        onchange="readURL(this);">
+                    <small id="helpId" class="form-text text-muted">Image in PNG format is recommended</small>
                 </div>
 
                 <div class="text-center">
@@ -108,7 +105,7 @@
                     <label for="stories" class="form-label">User Story</label>
                     <div class="row">
                       <div class="col-11">
-                        <textarea class="form-control" name="stories[]" id="stories[]" required placeholder="Enter user story"></textarea>
+                        <textarea class="form-control" name="stories[]" id="stories[]" placeholder="Enter user story"></textarea>
                       </div>
                       <div class="col-1 position-relative">
                         <a href="javascript:void(0);" class="add_button btn btn-primary position-absolute top-50 start-50 translate-middle" role="button" title="Add field"><i class="bi bi-plus-square"></i></a>
@@ -129,7 +126,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 <strong>{{ session('success') }}</strong>
             </div>
+            @endif
 
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
             @endif
           </div>
         </div>
@@ -144,7 +150,7 @@
         var maxField = 100;
         var addButton = $('.add_button');
         var wrapper = $('.field_wrapper');
-        var fieldHTML = '<div class="my-3 field_wrapper"><label for="stories" class="form-label">User Story</label><div class="row"><div class="col-11"><textarea class="form-control" name="stories[]" id="stories[]" required placeholder="Enter user story"></textarea></div><div class="col-1 position-relative"><a href="javascript:void(0);" class="btn btn-danger remove_button position-absolute top-50 start-50 translate-middle" role="button"><i class="bi bi-dash-square"></i></a></div></div></div>';
+        var fieldHTML = '<div class="my-3 field_wrapper"><label for="stories" class="form-label">User Story</label><div class="row"><div class="col-11"><textarea class="form-control" name="stories[]" id="stories[]" placeholder="Enter user story"></textarea></div><div class="col-1 position-relative"><a href="javascript:void(0);" class="btn btn-danger remove_button position-absolute top-50 start-50 translate-middle" role="button"><i class="bi bi-dash-square"></i></a></div></div></div>';
         var x = 1;
 
         $(addButton).click(function(){

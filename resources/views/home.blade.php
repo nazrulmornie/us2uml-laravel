@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('title') Home @endsection
 @section('content')
-<div class="container-fluid background-radial-gradient" style="height: 50em">
+<div class="container-fluid home-banner" style="height: 50em">
     <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%">
         <h1 class="text-center text-white fs-1 text-capitalize fw-bolder">Us2UML - User Stories to Unified Modelling Language (UML) and Goal Model</h1>
         <p class="text-center text-white">A study to generate UML model and Goal Model from structured user stories.</p>
     </div>
 </div>
 <div class="container-fluid bg-white">
-    <div class="container-fluid py-5">
+    <div class="container py-5">
     <h1 class="display-4 text-uppercase text-center mb-5 text-primary">Project Overview</h1>
 
         <div class="row align-items-center">

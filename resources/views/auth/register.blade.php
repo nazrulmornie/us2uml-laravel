@@ -130,7 +130,7 @@
           backdrop-filter: blur(30px);
           width: 50%;
           ">
-      <div class="card-body py-3 px-md-3 2">
+      <div class="card-body py-3 px-md-3">
         <div class="row d-flex justify-content-center">
           <div class="col-lg-8">
             <h2 class="fw-bold mb-3 text-center">Register Now</h2>

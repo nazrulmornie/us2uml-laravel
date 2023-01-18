@@ -1,9 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<section class="single-page-header">
+    <div class="container w-100">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-white text-lg-center">Add User Stories</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="container py-5">
 
-    <h1 class ="text-center mb-5">Add User Stories</h1>
 
     <div class="row">
       <div class="col-md-5">
@@ -52,7 +61,7 @@
       <div class="col-md-7 d-flex align-items-stretch">
         <div class="card w-100">
           <div class="card-body">
-            <h5 class="card-title my-4 text-center">User Story {{$uml->user_id}}</h5>
+            <h5 class="card-title my-4 text-center text-capitalize">Add User Story for project: <br>{{$uml->project_name}}</h5>
             <div class="form-group p-5">
               <form method="POST" action="{{ route('add-stories.store')}}">
                 @csrf
@@ -64,7 +73,7 @@
                 <input type="hidden" name="uml" id="uml" value="{{ $uml->id }}">
                 <div class="d-flex justify-content-center">
                   <a href="{{ route('submit.show' , $uml->id) }}" role="button" class="btn btn-secondary me-auto mb-3 p-2 bd-highlight" style="width: 35%; height: 20%" value="Back">Cancel</a>
-                  <a type="button" class="btn btn-success mb-3 p-2 bd-highlight" style="width: 35%; height: 20%" data-bs-toggle="modal" data-bs-target="#addStoryModal">Submit</a>
+                  <a type="button" class="text-white btn btn-success mb-3 p-2 bd-highlight" style="width: 35%; height: 20%" data-bs-toggle="modal" data-bs-target="#addStoryModal">Submit</a>
                 </div>
                 <div class="modal fade" id="addStoryModal" tabindex="-1" aria-labelledby="addStoryModalLabel" aria-hidden="true">
                   <div class="modal-dialog">

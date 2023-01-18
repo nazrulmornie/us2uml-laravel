@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\UserStoryController;
 use App\Http\Controllers\ComingSoonController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\UmlsController;
@@ -67,3 +68,5 @@ Route::post('/updated-password/', [ProfileController::class, 'updatePassword'])-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('after-contact', [ContactController::class, 'successEmail'])->name('success-email');

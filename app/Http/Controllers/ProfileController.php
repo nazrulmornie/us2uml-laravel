@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\gender;
+use App\Models\UserGroup;
 
 use App\Models\User;
 
@@ -20,9 +22,10 @@ class ProfileController extends Controller
      */
     public function edit(Request $request)
     {
-        return view('update_profile', [
-            'user' => $request->user(),
-        ]);
+        $genders = gender::all();
+        $user_group = UserGroup::all();
+
+        return view('update_profile', ['user' => $request->user(), 'genders' => $genders, 'user_group' => $user_group ]);
     }
 
     /**
@@ -38,6 +41,16 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+
+        $phone_number = $request->phone_number;
+        $about = $request->about;
+        $group = $request->user_group;
+        $gender = $request->gender;
+
+        $request->user()->phone_number = $phone_number;
+        $request->user()->about_me = $about;
+        $request->user()->user_group = $group;
+        $request->user()->gender_id = $gender;
 
         $request->user()->save();
 

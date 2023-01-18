@@ -69,7 +69,7 @@
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label for="phone_number" class="form-label">Phone Number</label>
-                            <input class="form-control" type="text" name="phone_number" id="phone_number" placeholder="0123456789">
+                            <input class="form-control" type="text" name="phone_number" id="phone_number" placeholder="0123456789" value="{{ auth()->user()->phone_number }}">
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="email" class="form-label">Email</label>
@@ -80,7 +80,7 @@
                     <div class="mb-3">
                         <div class="mb-3">
                             <label for="about_me" class="form-label">About me</label>
-                            <textarea class="form-control" name="about_me" id="about_me" rows="3" placeholder="Write something about yourself"></textarea>
+                            <textarea class="form-control" name="about" id="about" rows="3" placeholder="Write something about yourself">{{ auth()->user()->about_me }}</textarea>
                         </div>
                     </div>
 
@@ -89,20 +89,22 @@
                             <div class="mb-3">
                                 <label for="user_group" class="form-label">User Group</label>
                                 <select class="form-select form-select-md" name="user_group" id="user_group">
-                                    <option selected>Select one</option>
-                                    <option value="student">Students</option>
-                                    <option value="professional">Industry Professionals</option>
-                                    <option value="other">Other</option>
+                                    <option disabled selected>Select one</option>
+                                    @foreach ($user_group as $key)
+                                        <option value="{{ $key->id }}" {{ auth()->user()->user_group == $key->id ? 'selected' : '' }}>{{ $key->group }}</option>
+                                    @endforeach
+
                                 </select>
                             </div>
                         </div>
                         <div class="mb-3 col-md-5">
                             <label for="" class="form-label">Gender</label>
-                            <select class="form-select form-select-md" name="" id="">
-                                <option selected>Select one</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="none">Rather Not To Say</option>
+                            <select class="form-select form-select-md" name="gender" id="gender">
+                                <option disabled selected>Select one</option>
+                                @foreach ($genders as $key)
+                                    <option value="{{ $key->id }}" {{ auth()->user()->gender_id == $key->id ? 'selected' : '' }}>{{ $key->genders }}</option>
+                                @endforeach
+
                             </select>
                         </div>
                     </div>
@@ -112,6 +114,49 @@
                     </div>
                 </div>
             </form>
+
+            {{-- <hr>
+
+            <h1 class="text-center">Additional Information</h1>
+            <form method="POST" action="{{ route('user.update-info', auth()->user()->id) }}">
+                @csrf
+                @method('PATCH')
+
+                <div class="mb-3">
+                    <label for="phone_number" class="form-label">Phone Number</label>
+                    <input class="form-control" type="text" name="phone_number" id="phone_number" placeholder="0123456789">
+                </div>
+
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <label for="about_me" class="form-label">About me</label>
+                        <textarea class="form-control" name="about_me" id="about_me" rows="3" placeholder="Write something about yourself"></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-7">
+                        <div class="mb-3">
+                            <label for="user_group" class="form-label">User Group</label>
+                            <select class="form-select form-select-md" name="user_group" id="user_group">
+                                <option selected>Select one</option>
+                                <option value="student">Students</option>
+                                <option value="professional">Industry Professionals</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="" class="form-label">Gender</label>
+                        <select class="form-select form-select-md" name="" id="">
+                            <option selected>Select one</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="none">Rather Not To Say</option>
+                        </select>
+                    </div>
+                </div>
+            </form> --}}
 
             <hr>
             <h1 class="text-center">Update Password</h1>
