@@ -109,7 +109,7 @@
                                                 <td scope="row" class="text-center"> {{ $uml->project_name }} </td>
                                                 <td  class="text-center"> {{ $uml->diagram_type->diagram_name }} </td>
                                                 <td>
-                                                    <img class="img-fluid img-thumbnail" src="{{ asset('storage/images/'.$uml->image) }}" height="100px" width="100px">
+                                                    <img class="img-fluid img-thumbnail" src="{{ asset('storage/images/'.$uml->diagram_type->diagram_name. '/'.$uml->image) }}" height="100px" width="100px">
                                                 </td>
                                                 <td  class="text-center"> {{ $uml->story()->count()  }}</td>
                                                 <td  class="text-center"> {{ $uml->updated_at->diffForHumans() }} </td>

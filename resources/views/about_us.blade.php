@@ -167,30 +167,30 @@ Start About Section
                     guideline to identify processes, procedures, and techniques required.
                 </p>
                 <div class="container">
-                    <div class="row text-center" style="height: 10rem">
+                    <div class="row text-center" style="height: 100%">
                         <div class="col-md-3 shadow-inner align-self-center py-5 bg-black text-white" style="height:100%" >
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="yellow" class="bi bi-1-circle-fill" viewBox="0 0 16 16">
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM9.283 4.002H7.971L6.072 5.385v1.271l1.834-1.318h.065V12h1.312V4.002Z"/>
                             </svg>
-                            <h5>Prior investigation and content analysis</h5>
+                            <h5 style="font-size: 2vw">Prior investigation and content analysis</h5>
                         </div>
                         <div class="col-md-3 shadow-inner align-self-center py-5 bg-primary" style="height:100%" >
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="black" class="bi bi-2-circle-fill" viewBox="0 0 16 16">
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM6.646 6.24c0-.691.493-1.306 1.336-1.306.756 0 1.313.492 1.313 1.236 0 .697-.469 1.23-.902 1.705l-2.971 3.293V12h5.344v-1.107H7.268v-.077l1.974-2.22.096-.107c.688-.763 1.287-1.428 1.287-2.43 0-1.266-1.031-2.215-2.613-2.215-1.758 0-2.637 1.19-2.637 2.402v.065h1.271v-.07Z"/>
                               </svg>
-                            <h5>Identification of model design consideration and attributes</h5>
+                            <h5 style="font-size: 2vw">Identification of model design consideration and attributes</h5>
                         </div>
                         <div class="col-md-3 shadow-inner align-self-center py-5 bg-black text-white" style="height:100%" >
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="yellow" class="bi bi-3-circle-fill" viewBox="0 0 16 16">
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.082.414c.92 0 1.535.54 1.541 1.318.012.791-.615 1.36-1.588 1.354-.861-.006-1.482-.469-1.54-1.066H5.104c.047 1.177 1.05 2.144 2.754 2.144 1.653 0 2.954-.937 2.93-2.396-.023-1.278-1.031-1.846-1.734-1.916v-.07c.597-.1 1.505-.739 1.482-1.876-.03-1.177-1.043-2.074-2.637-2.062-1.675.006-2.59.984-2.625 2.12h1.248c.036-.556.557-1.054 1.348-1.054.785 0 1.348.486 1.348 1.195.006.715-.563 1.237-1.342 1.237h-.838v1.072h.879Z"/>
                               </svg>
-                            <h5>Further investigation</h5>
+                            <h5 style="font-size: 2vw">Further investigation</h5>
                         </div>
                         <div class="col-md-3 shadow-inner align-self-center py-5 bg-primary" style="height:100%" >
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="black" class="bi bi-4-circle-fill" viewBox="0 0 16 16">
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM7.519 5.057c-.886 1.418-1.772 2.838-2.542 4.265v1.12H8.85V12h1.26v-1.559h1.007V9.334H10.11V4.002H8.176c-.218.352-.438.703-.657 1.055ZM6.225 9.281v.053H8.85V5.063h-.065c-.867 1.33-1.787 2.806-2.56 4.218Z"/>
                             </svg>
-                            <h5>Evaluation of framework</h5><br>
+                            <h5 style="font-size: 2vw">Evaluation of framework</h5><br>
                         </div>
                     </div>
 
@@ -199,7 +199,7 @@ Start About Section
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 mb-2">
-                        <div class="card p-4 shadow-inner" style="height: 33rem">
+                        <div class="card p-4 shadow-inner" style="height: 100%">
                             <h3 class="mt-2 text-center text-primary">Stage 1: Prior investigation and content analysis</h3>
                             <div class="d-flex flex-column justify-content-center align-items-center h-100">
                                 <p class="lh-base" style="text-align:justify">
@@ -219,7 +219,7 @@ Start About Section
 
                     </div>
                     <div class="col-md-6 mb-2">
-                        <div class="card p-4 shadow-inner" style="height: 33rem">
+                        <div class="card p-4 shadow-inner" style="height: 100%">
                             <h3 class="mt-2 text-center text-primary">Stage 2: Identification of model design consideration and attributes</h3>
                             <div class="d-flex flex-column justify-content-center align-items-center h-100">
                                 <p class="lh-base" style="text-align:justify">
@@ -237,7 +237,7 @@ Start About Section
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <div class="card p-4 shadow-inner" style="height: 33rem">
+                        <div class="card p-4 shadow-inner" style="height: 100%">
                             <h3 class="mt-2 text-center text-primary">Stage 3: Further investigation</h3>
                             <div class="d-flex flex-column justify-content-center align-items-center h-100">
                                 <p class="lh-base" style="text-align:justify">
@@ -253,7 +253,7 @@ Start About Section
                         </div>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <div class="card p-4 shadow-inner" style="height: 33rem">
+                        <div class="card p-4 shadow-inner" style="height: 100%">
                             <h3 class="mt-2 text-center text-primary">Stage 4: Evaluation of framework</h3>
                             <div class="d-flex flex-column justify-content-center align-items-center h-100">
                                 <p class="lh-base" style="text-align:justify">
@@ -393,7 +393,7 @@ Start About Section
 <section class="call-to-action section">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 text-center">
+			<div class="col-sm-12 text-center">
 				<h2>You have any doubt wandering your mind?</h2>
 				<p>Contact us directly to ask your questions about this project! <br> We will try our best to solve your curiousity!</p>
 				<a href="{{ route('contact')}}" class="btn btn-main text-white">Contact Us</a>
@@ -406,7 +406,7 @@ Start About Section
 <section class="bg-dark section text-white">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 text-center">
+			<div class="col-sm-12 text-center">
 				<h2>Are you ready?</h2>
 				<p class="text-white">Help us now by submitting your samples of UML diagram or Goal Model!</p>
 				<a href="{{ route('login')}}" class="btn btn-main text-white">Login</a>

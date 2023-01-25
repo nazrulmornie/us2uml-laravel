@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class LoginController extends Controller
 {
@@ -26,7 +29,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected $username;
 
     /**
      * Create a new controller instance.
@@ -37,4 +41,27 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function username()
+    {
+        $login_value = request('username');
+
+        $this->username = filter_var($login_value, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        request()->merge([$this->username => $login_value]);
+        return property_exists($this, 'username') ? $this->username : 'email';
+    }
+
+    public function redirectTo() {
+        $role = Auth::user()->role_id;
+        switch ($role) {
+          case 3:
+            return route('password.form');
+            break;
+
+          default:
+            return 'home';
+          break;
+        }
+      }
+
 }

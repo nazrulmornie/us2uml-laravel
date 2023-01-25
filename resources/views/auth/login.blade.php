@@ -71,7 +71,7 @@
 </div> --}}
 
 <!-- Section: Design Block -->
-<section class="background-radial-gradient overflow-hidden vh-100">
+<section class="background-radial-gradient overflow-hidden">
 
     <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
       <div class="row gx-lg-5 align-items-center mb-5">
@@ -100,8 +100,15 @@
                 </div>
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <label class="form-label " for="form3Example3">Email address</label>
-                  <input type="email" id="form3Example3" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus" />
+                    <label class="form-label " for="form3Example3">Username or Email</label>
+                    <input type="text" id="form3Example3" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus />
+
+                    @error('username')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

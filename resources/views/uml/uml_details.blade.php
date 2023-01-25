@@ -18,7 +18,7 @@
     <div class="container-sm">
         <figure class="text-center">
             <a href="{{ route('add-uml.edit', $uml->id) }}">
-                <img src="{{ asset('storage/images/'.$uml->image) }}" class="img-fluid rounded mx-auto d-block m-3">
+                <img src="{{ asset('storage/images/'. $uml->diagram_type->diagram_name . '/' .$uml->image) }}" class="img-fluid rounded mx-auto d-block m-3">
             </a>
             <figcaption class="font-monospace">Click the diagram to update</figcaption>
         </figure>

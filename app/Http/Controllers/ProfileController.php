@@ -91,7 +91,13 @@ class ProfileController extends Controller
             'new_password' => 'required|confirmed',
         ]);
 
+        $role_id = $request->role_id;
 
+        if($role_id == 3){
+            $role_id = 2;
+        }
+
+        // dd($role_id);
 
         if(!Hash::check($request->old_password, auth()->user()->password)){
             return back()->with("error", "Old Password Doesn't match!");
@@ -99,9 +105,10 @@ class ProfileController extends Controller
 
 
         User::whereId(auth()->user()->id)->update([
-            'password' => Hash::make($request->new_password)
+            'password' => Hash::make($request->new_password),
+            'role_id' => $role_id,
         ]);
 
-        return back()->with("status", "Password changed successfully!");
+        return redirect()->route('home')->with("status", "Password changed successfully!");
     }
 }

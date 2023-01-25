@@ -49,11 +49,17 @@
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-lowercase" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img class="rounded-circle" src="{{ asset('storage/users/'.auth()->user()->avatar) }}" width="30" height="30" style="object-fit: cover">
+                                    {{ auth()->user()->username }}
+                                    <img class="rounded-circle mx-2" src="{{ asset('storage/users/'.auth()->user()->avatar) }}" width="30" height="30" style="object-fit: cover">
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('profile.edit')}}">Manage Account</a>
+
+                                    @if (auth()->user()->role_id ==3){
+                                        <a class="dropdown-item text-danger" href="{{ route('password.form')}}">Change Password</a>
+                                    }
+                                    @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();

@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\UmlsController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,21 +38,16 @@ Route::get('/index', function(){
     return view('theme.index');
 })->name('index');
 
-Route::resource('/submit', UserStoryController::class)->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::resource('/coming-soon', ComingSoonController::class)->middleware('auth');
-
-Route::resource('/add-stories', StoryController::class)->middleware('auth');
-
-Route::resource('/add-uml', UmlsController::class)->middleware('auth');
-
-
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('student')->name('home');
+    Route::resource('/submit', UserStoryController::class)->middleware('student');
+    Route::resource('/coming-soon', ComingSoonController::class)->middleware('student');
+    Route::resource('/add-stories', StoryController::class)->middleware('student');
+    Route::resource('/add-uml', UmlsController::class)->middleware('student');
+    Route::get('/profile', [ProfileController::class, 'edit'])->middleware('student')->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });

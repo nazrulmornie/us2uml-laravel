@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col-md-6 mb-4 align-self-center">
             {{-- <h2 class="text-center mb-4">Uploaded Diagram</h2> --}}
-            <img src="{{ asset('storage/images/'.$uml->image) }}" class="rounded img-fluid">
+            <img src="{{ asset('storage/images/'. $uml->diagram_type->diagram_name .'/'. $uml->image) }}" class="rounded img-fluid">
         </div>
         <div class="col-md-6">
             <div class="card p-5">

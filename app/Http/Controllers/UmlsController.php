@@ -81,10 +81,11 @@ class UmlsController extends Controller
             $uml->diagram_id = $diagram_name;
         }
 
+        $diagram = $uml->diagram_type->diagram_name;
 
         if (!empty ($image)){
             $image_name = $image->getClientOriginalName();
-            $image->storeAs('public/images', $image_name);
+            $image->storeAs('public/images/'.$diagram .'/', $image_name);
             $uml->image = $image_name;
 
             if(!empty ($request->project_title)){
